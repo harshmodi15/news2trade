@@ -1,0 +1,14 @@
+numpy
+pandas
+scikit-learn
+tensorflow
+matplotlib
+tqdm
+ipywidgets
+seaborn
+tabulate
+pyyaml
+nltk
+jupyter
+notebook    
+pytest

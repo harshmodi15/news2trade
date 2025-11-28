@@ -1,0 +1,46 @@
+# Data Configuration
+data:
+  train_ratio: 0.7
+  features:
+    base: ["Open", "High", "Low", "Close", "Adj Close", "Volume"]
+    sentiment: ["sentiment_score"]
+    keyword: ["Keyword_impact"]
+
+# model arch w/ sample parameters
+model:
+  type: "simple_lstm"  # Options: simple_lstm, stacked_lstm, bidirectional_lstm
+  units: 128
+  dropout_rate: 0.2
+  activation: "swish"
+
+# sample Parameters
+training:
+  epochs: 100
+  batch_size: 64
+  optimizer:
+    name: "Nadam"
+    learning_rate: 0.01
+  early_stopping:
+    patience: 10
+    monitor: "val_loss"
+  model_checkpoint:
+    save_best_only: true
+    monitor: "val_loss"
+
+# different scenarios
+scenarios:
+  baseline:
+    features: ["Open", "High", "Low", "Close", "Adj Close", "Volume"]
+  
+  w_Sentiment:
+    features: ["Open", "High", "Low", "Close", "Adj Close", "Volume", "Sentiment_score"]
+  
+  w_Sentiment_and_Keywords:
+    features: ["Open", "High", "Low", "Close", "Adj Close", "Volume", "Sentiment_score", "Keyword_impact"]
+
+# Paths
+paths:
+  model_save_dir: "models/saved"
+  results_dir: "results"
+  log_dir: "logs"
+  plot_dir: "results/plots"
