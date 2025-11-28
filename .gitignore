@@ -205,3 +205,29 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+
+
+
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment files
+.env
+*.key
+*.pem
+*.json
+secrets/
+
+# Data and models
+data/
+pretrained_model/
+models/
+checkpoints/
+
+# OS + IDE
+.DS_Store
+.vscode/
+.idea/
